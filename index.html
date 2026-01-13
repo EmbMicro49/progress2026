@@ -334,10 +334,12 @@
       font-family: "IBM Plex Mono", monospace;
       font-size: 13px;
       line-height: 1.6;
-      white-space: pre-wrap;
+      white-space: pre;
       height: auto;
-      max-height: none;
-      overflow: visible;
+      min-height: 120px;
+      max-height: 480px; /* ~20 lines at 13px * 1.6 + padding */
+      overflow-x: auto;
+      overflow-y: auto;
       background: rgba(11, 11, 11, 0.08);
       padding: 14px;
       border-radius: 12px;
@@ -515,9 +517,9 @@
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">PROGRESS <span>25/26</span></h1>
+        <h1 class="hero-title">300M+ <span>197+ REPOS</span></h1>
         <p class="hero-desc">
-          A year of measurable gains and the roadmap that keeps momentum climbing. I&#39;m closing a strong year and opening a sharper one, with clearer goals that you can measure and build on
+          The Queen, the finest version of all, is built with care and precision in every detail. She can plan, guide, and carry out the most complex tasks, where ordinary agents fail.
         </p>
       </div>
       <!-- END:HERO -->
@@ -728,32 +730,64 @@
       <div class="timeline">
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2023</span>
-            <span class="timeline-year-title">Enable</span>
+            <span class="timeline-year-label">Q2 2024</span>
+            <span class="timeline-year-title">Foundation</span>
           </div>
           <div class="timeline-cards">
               <article class="timeline-card">
-                <div class="timeline-tag">Data</div>
-                <h3 class="timeline-title">Unified feature store</h3>
-                <p class="timeline-desc"></p>
-              </article>
-              <article class="timeline-card">
-                <div class="timeline-tag">Eval</div>
-                <h3 class="timeline-title">Model scorecards</h3>
+                <div class="timeline-tag">Milestone</div>
+                <h3 class="timeline-title">A dedicated section on ML was established</h3>
                 <p class="timeline-desc"></p>
               </article>
           </div>
         </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2024-2026</span>
-            <span class="timeline-year-title">Scale</span>
+            <span class="timeline-year-label">2025</span>
+            <span class="timeline-year-title">Emergence</span>
           </div>
           <div class="timeline-cards">
-              <article class="timeline-card highlight">
-                <div class="timeline-tag">MLOps</div>
-                <h3 class="timeline-title">Continuous training</h3>
-                <p class="timeline-desc"></p>
+              <article class="timeline-card timeline-media">
+                <img src="ML/Screenshot From 2026-01-13 14-08-43.png" alt="Feedforward Neural Network Architecture" />
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">Q4 2025</span>
+            <span class="timeline-year-title">Research</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag">Systems</div>
+                <h3 class="timeline-title">Emergent Intelligence</h3>
+                <p class="timeline-desc">Self-organized systems where simple agents follow local rules to create complex, intelligent global behavior without centralized control. Inspired by my paper published last year.</p>
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">2026</span>
+            <span class="timeline-year-title">Current Work</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag">Stack</div>
+                <h3 class="timeline-title">Multi-Agent Systems</h3>
+                <p class="timeline-desc">• Python (coordination logic, task decomposition)<br>• Message queues (Redis, Kafka for inter-agent communication)<br>• Vector databases (HNSW for semantic memory search)<br>• SQLite/AgentDB (persistent memory storage)<br>• Reinforcement learning algorithms (pattern propagation)<br>• Circuit breakers and retry mechanisms (fault tolerance)</p>
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">Q4 2026</span>
+            <span class="timeline-year-title">Launch</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag">Product</div>
+                <h3 class="timeline-title">HummingBird</h3>
+                <p class="timeline-desc">Series 1 will be launched</p>
               </article>
           </div>
         </div>
@@ -845,32 +879,25 @@
       <div class="timeline">
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2023</span>
-            <span class="timeline-year-title">Pipelines</span>
+            <span class="timeline-year-label">2026</span>
+            <span class="timeline-year-title">Landscape</span>
           </div>
           <div class="timeline-cards">
-              <article class="timeline-card">
-                <div class="timeline-tag">Ingest</div>
-                <h3 class="timeline-title">Unified ingestion layer</h3>
-                <p class="timeline-desc"></p>
-              </article>
-              <article class="timeline-card">
-                <div class="timeline-tag">Quality</div>
-                <h3 class="timeline-title">Data quality gates</h3>
-                <p class="timeline-desc"></p>
+              <article class="timeline-card timeline-media">
+                <img src="DataEng/Screenshot From 2026-01-13 13-12-30.png" alt="Data Engineering Landscape" />
               </article>
           </div>
         </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2024-2026</span>
-            <span class="timeline-year-title">Governance</span>
+            <span class="timeline-year-label">Q1 2026</span>
+            <span class="timeline-year-title">Fundamentals</span>
           </div>
           <div class="timeline-cards">
-              <article class="timeline-card highlight">
-                <div class="timeline-tag">Lineage</div>
-                <h3 class="timeline-title">End-to-end lineage</h3>
-                <p class="timeline-desc"></p>
+              <article class="timeline-card">
+                <div class="timeline-tag">Core</div>
+                <h3 class="timeline-title">Fundamentals, core concepts</h3>
+                <p class="timeline-desc">• Data modeling basics (dimensional, normalized)<br>• Data architectures (batch, streaming, lambda, kappa)<br>• SQL fundamentals and window functions and more</p>
               </article>
           </div>
         </div>
@@ -964,47 +991,39 @@
       <div class="snippet-stack">
         <article class="snippet-card">
           <div class="snippet-head">
-            <div class="snippet-title">Latency Budget</div>
-            <div class="snippet-lang">bash</div>
-          </div>
-          <pre><code class="snippet-code">
-
-          </code></pre>
-        </article>
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">Cache Warmup</div>
+            <div class="snippet-title">RL Agent Selection</div>
             <div class="snippet-lang">python</div>
           </div>
           <pre><code class="snippet-code">
+    # Implements Q-learning and policy gradient algorithms to learn optimal agent
+    # selection strategies from historical outcomes.
 
-          </code></pre>
-        </article>
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">Deploy Check</div>
-            <div class="snippet-lang">yaml</div>
-          </div>
-          <pre><code class="snippet-code">
+    from enum import Enum
+    from typing import Dict, List, Optional, Tuple
+    from dataclasses import dataclass
+    import numpy as np
+    from collections import defaultdict, deque
+    import json
+    from datetime import datetime, timedelta
 
-          </code></pre>
-        </article>
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">Random Seed</div>
-            <div class="snippet-lang">python</div>
-          </div>
-          <pre><code class="snippet-code">
+    class RLAlgorithm(Enum):
+        &quot;&quot;&quot;Reinforcement learning algorithms&quot;&quot;&quot;
 
-          </code></pre>
-        </article>
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">Quick Model</div>
-            <div class="snippet-lang">python</div>
-          </div>
-          <pre><code class="snippet-code">
+        Q_LEARNING = &quot;q_learning&quot;
+        # Value-based: Learn Q(state, action) function
+        # Use for: Discrete action spaces, stable environments
 
+        SARSA = &quot;sarsa&quot;
+        # On-policy TD learning
+        # Use for: Safety-critical decisions, exploration control
+
+        POLICY_GRADIENT = &quot;policy_gradient&quot;
+        # Directly optimize policy
+        # Use for: Continuous action spaces, complex policies
+
+        ACTOR_CRITIC = &quot;actor_critic&quot;
+        # Combine value and policy learning
+        # Use for: High-dimensional state spaces, faster convergence
           </code></pre>
         </article>
       </div>
@@ -1024,15 +1043,15 @@
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-title">U25 Ads</div>
-          <p class="footer-desc">Place your brand where teams plan, build, and ship. Premium slots, targeted placements, measurable reach.</p>
+          <div class="footer-title">A year of measurable gains and the roadmap that keeps momentum climbing. I&#39;m closing a strong year and opening a sharper one, with clearer goals that you can measure and build on.</div>
+          <p class="footer-desc"></p>
         </div>
         <div class="footer-links">
           <div class="footer-links-list">
           </div>
         </div>
       </div>
-      <div class="footer-meta">© 2026 U25. Advertising inquiries: ads@u25.example</div>
+      <div class="footer-meta"></div>
     </footer>
     <!-- END:FOOTER -->
   </div>
