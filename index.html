@@ -349,6 +349,14 @@
       display: block;
     }
 
+    .snippet-list {
+      margin: 0;
+      padding-left: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
     .footer {
       padding: 48px 40px 32px;
       border-top: 1px solid var(--grid);
@@ -519,7 +527,7 @@
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
         <h1 class="hero-title">300M+ <span>197+ REPOS</span></h1>
         <p class="hero-desc">
-          The Queen, the finest version of all, is built with care and precision in every detail. She can plan, guide, and carry out the most complex tasks, where ordinary agents fails.
+          The Queen, the finest version of all, is built with care and precision in every detail. She can plan, guide, and carry out even the most complex tasks, where ordinary agents fail.
         </p>
       </div>
       <!-- END:HERO -->
@@ -681,6 +689,20 @@
           <div class="timeline-cards">
           </div>
         </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">2019</span>
+            <span class="timeline-year-title">Diffusion Limited Aggregation</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="SciC/image1.png" alt="SciC 2019" />
+              </article>
+              <article class="timeline-card timeline-media">
+                <img src="SciC/image2.png" alt="SciC 2019 Image 2" />
+              </article>
+          </div>
+        </div>
       </div>
     </section>
     <section class="section" id="dsa">
@@ -827,6 +849,22 @@
                 <div class="timeline-tag">Ops</div>
                 <h3 class="timeline-title">Self-healing infrastructure</h3>
                 <p class="timeline-desc"></p>
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">Q3 2025</span>
+            <span class="timeline-year-title">MeshFabric</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="SysAdmin/image1.png" alt="MeshFabric" />
+              </article>
+              <article class="timeline-card">
+                <div class="timeline-tag">Network</div>
+                <h3 class="timeline-title">MeshFabric</h3>
+                <p class="timeline-desc">With MeshFabric, you can create private mesh VPN networks with complete control over your coordination infrastructure. It provides data sovereignty, cost savings, and flexibility for organizations of all sizes.<br><br>• Deploy on any infrastructure you control - from Raspberry Pi to cloud servers.<br>• End-to-end encrypted connections with cryptographic device authentication.<br>• Web-based management console with network topology visualization, real-time monitoring, and advanced filtering.<br>• Currently deployed and optimized for AWS Graviton processor.</p>
               </article>
           </div>
         </div>
@@ -989,61 +1027,24 @@
         <div class="section-note">ROTATING TECH NOTE</div>
       </div>
       <div class="snippet-stack">
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">RL Agent Selection</div>
-            <div class="snippet-lang">python</div>
-          </div>
-          <pre><code class="snippet-code">
-    # Implements Q-learning and policy gradient algorithms to learn optimal agent
-    # selection strategies from historical outcomes.
-
-    from enum import Enum
-    from typing import Dict, List, Optional, Tuple
-    from dataclasses import dataclass
-    import numpy as np
-    from collections import defaultdict, deque
-    import json
-    from datetime import datetime, timedelta
-
-    class RLAlgorithm(Enum):
-        &quot;&quot;&quot;Reinforcement learning algorithms&quot;&quot;&quot;
-
-        Q_LEARNING = &quot;q_learning&quot;
-        # Value-based: Learn Q(state, action) function
-        # Use for: Discrete action spaces, stable environments
-
-        SARSA = &quot;sarsa&quot;
-        # On-policy TD learning
-        # Use for: Safety-critical decisions, exploration control
-
-        POLICY_GRADIENT = &quot;policy_gradient&quot;
-        # Directly optimize policy
-        # Use for: Continuous action spaces, complex policies
-
-        ACTOR_CRITIC = &quot;actor_critic&quot;
-        # Combine value and policy learning
-        # Use for: High-dimensional state spaces, faster convergence
-          </code></pre>
-        </article>
+        <div class="snippet-card">
+          <ul class="snippet-list">
+            <li>Piadina Romagnola heated on olive oil</li>
+            <li>Fermented mushrooms</li>
+            <li>Mixed fermented vegetables</li>
+            <li>Turmeric Turkish eggs</li>
+            <li>Milk</li>
+            <li>Google Meet group call</li>
+          </ul>
+        </div>
       </div>
-      <script>
-        (function () {
-          var cards = document.querySelectorAll(".snippet-card");
-          if (!cards.length) return;
-          var index = Math.floor(Math.random() * cards.length);
-          cards.forEach(function (card, i) {
-            card.style.display = i === index ? "grid" : "none";
-          });
-        })();
-      </script>
     </section>
     <!-- END:SNIPPETS -->
     <!-- BEGIN:FOOTER -->
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-title">A year of measurable gains and the roadmap that keeps momentum climbing. I&#39;m closing a strong year and opening a sharper one, with clearer goals that you can measure and build on.</div>
+          <div class="footer-title">A year of measurable gains and the roadmap that keeps momentum climbing. I&#39;m closing a strong year and opening a sharper one, with clearer goals that you can measure and build on</div>
           <p class="footer-desc"></p>
         </div>
         <div class="footer-links">
