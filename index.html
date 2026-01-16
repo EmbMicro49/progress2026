@@ -517,9 +517,9 @@
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">Scientific Computing <span></span></h1>
+        <h1 class="hero-title">GIT COMMITS <span></span></h1>
         <p class="hero-desc">
-          A moment of nostalgia inspired by FORTRAN and the study of differential equations.
+          It started with a few silly commits two years ago. I was trying to impress her.
         </p>
       </div>
       <!-- END:HERO -->
@@ -534,49 +534,38 @@
       <div class="timeline">
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2022</span>
+            <span class="timeline-year-label">2020</span>
             <span class="timeline-year-title">Foundation</span>
           </div>
           <div class="timeline-cards">
-              <article class="timeline-card">
-                <div class="timeline-tag">Studio</div>
-                <h3 class="timeline-title">Studio Canvas</h3>
-                <p class="timeline-desc"></p>
-              </article>
-              <article class="timeline-card">
-                <div class="timeline-tag">Insights</div>
-                <h3 class="timeline-title">Atlas Boards</h3>
-                <p class="timeline-desc"></p>
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image4.png" alt="GitHub" />
               </article>
           </div>
         </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2023</span>
-            <span class="timeline-year-title">Resilience</span>
+            <span class="timeline-year-label">Q3 2025</span>
+            <span class="timeline-year-title">CodeTutor</span>
           </div>
           <div class="timeline-cards">
-              <article class="timeline-card">
-                <div class="timeline-tag">Operations</div>
-                <h3 class="timeline-title">Orbit Console</h3>
-                <p class="timeline-desc"></p>
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image1.png" alt="CodeTutor Interface" />
+              </article>
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image2.png" alt="CodeTutor Repository Preview" />
               </article>
           </div>
         </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
-            <span class="timeline-year-label">2024-2025</span>
-            <span class="timeline-year-title">Expansion</span>
+            <span class="timeline-year-label">Q4 2025</span>
+            <span class="timeline-year-title">CODESERVER</span>
           </div>
           <div class="timeline-cards">
-          </div>
-        </div>
-        <div class="timeline-year">
-          <div class="timeline-year-head">
-            <span class="timeline-year-label">2026</span>
-            <span class="timeline-year-title">Next Phase</span>
-          </div>
-          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image3.png" alt="CodeServer Metrics Dashboard" />
+              </article>
           </div>
         </div>
       </div>
@@ -1006,21 +995,33 @@
       <div class="snippet-stack">
         <article class="snippet-card">
           <div class="snippet-head">
-            <div class="snippet-title">GPU Profiling</div>
-            <div class="snippet-lang">cuda</div>
+            <div class="snippet-title">Git Delta Config</div>
+            <div class="snippet-lang">gitconfig</div>
           </div>
           <pre><code class="snippet-code">
-// Add some color in your life :)
-void push_nvtx_range(const char* name, uint32_t color) {
-    nvtxEventAttributes_t attrib = {0};
-    attrib.version     = NVTX_VERSION;
-    attrib.size        = NVTX_EVENT_ATTRIB_STRUCT_SIZE;
-    attrib.colorType   = NVTX_COLOR_ARGB;
-    attrib.color       = color;
-    attrib.messageType = NVTX_MESSAGE_TYPE_ASCII;
-    attrib.message.ascii = name;
-    nvtxRangePushEx(&attrib);
-}
+    #Add some decorations over your ugly git :)  
+    [pager]
+        diff = delta
+        log = delta
+        reflog = delta
+        show = delta
+
+    [delta]
+        features = side-by-side line-numbers decorations
+        syntax-theme = Monokai Extended
+        navigate = true
+        line-numbers = true
+
+    [delta &quot;decorations&quot;]
+        commit-decoration-style = bold yellow box
+        file-style = bold yellow ul
+        file-decoration-style = none
+
+    [interactive]
+        diffFilter = delta --color-only
+
+    [core]
+        pager = delta
           </code></pre>
         </article>
       </div>
