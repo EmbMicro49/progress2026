@@ -138,6 +138,7 @@
       font-size: clamp(48px, 7vw, 112px);
       line-height: 0.92;
       margin: 0;
+      color: var(--deep);
     }
 
     .hero-title span {
@@ -179,11 +180,72 @@
       text-transform: uppercase;
     }
 
+    .section-head-left {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex: 1;
+    }
+
+    /* Toggle Button */
+    .section-toggle {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--grid);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 200ms ease;
+      padding: 0;
+    }
+
+    .section-toggle:hover {
+      background: var(--deep);
+      border-color: var(--deep);
+    }
+
+    .section-toggle:hover .toggle-icon {
+      fill: var(--paper);
+    }
+
+    .toggle-icon {
+      width: 20px;
+      height: 20px;
+      fill: var(--ink);
+      transition: transform 200ms ease, fill 200ms ease;
+    }
+
+    /* Focus Styles (Accessibility) */
+    .section-toggle:focus {
+      outline: 2px solid var(--deep);
+      outline-offset: 2px;
+    }
+
+    /* Timeline Smooth Animation */
+    /* Note: Using max-height technique for smooth collapse animation.
+       5000px is generous estimate for longest section. Adjust if needed.
+       Opacity transition provides additional visual smoothness. */
     .timeline {
       position: relative;
       display: grid;
       gap: 32px;
       padding-left: 28px;
+      max-height: 5000px;
+      overflow: hidden;
+      transition: max-height 400ms ease-in-out, opacity 300ms ease;
+      opacity: 1;
+    }
+
+    /* Collapsed State */
+    .section.collapsed .timeline {
+      max-height: 0;
+      opacity: 0;
+      margin-bottom: 0;
     }
 
     .timeline::before {
@@ -349,6 +411,14 @@
       display: block;
     }
 
+    .snippet-list {
+      margin: 0;
+      padding-left: 18px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
     .footer {
       padding: 48px 40px 32px;
       border-top: 1px solid var(--grid);
@@ -472,6 +542,16 @@
     }
 
     @media (max-width: 640px) {
+      .section-head-left {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .section-toggle {
+        width: 36px;
+        height: 36px;
+      }
+
       .timeline {
         padding-left: 18px;
       }
@@ -517,19 +597,27 @@
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">GIT COMMITS <span></span></h1>
+        <h1 class="hero-title">🍲KING <span></span></h1>
         <p class="hero-desc">
-          It started with a few silly commits two years ago. I was trying to impress her.
+          After fourteen years of cooking, I have come to realize that there is still substantial room for growth and improvement.
         </p>
       </div>
       <!-- END:HERO -->
     </section>
 
     <!-- BEGIN:SECTIONS -->
-    <section class="section" id="devops">
+    <section class="section collapsed" id="devops" data-section-id="devops">
       <div class="section-head">
-        <h2 class="section-title">DevOps</h2>
-        <div class="section-note">2019-2026 DELIVERY ARC</div>
+        <div class="section-head-left">
+          <h2 class="section-title">DevOps</h2>
+          <div class="section-note">Developments and IT operations</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -540,6 +628,20 @@
           <div class="timeline-cards">
               <article class="timeline-card timeline-media">
                 <img src="DevOps/image4.png" alt="GitHub" />
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">Q3 2025</span>
+            <span class="timeline-year-title">MyCodeVault 2</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image5.png" alt="MyCodeVault Interface" />
+              </article>
+              <article class="timeline-card timeline-media">
+                <img src="DevOps/image6.png" alt="MyCodeVault Dashboard" />
               </article>
           </div>
         </div>
@@ -570,10 +672,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="advopt">
+    <section class="section collapsed" id="advopt" data-section-id="advopt">
       <div class="section-head">
-        <h2 class="section-title">AdvOpt</h2>
-        <div class="section-note">FLOW OPTIMIZATION</div>
+        <div class="section-head-left">
+          <h2 class="section-title">AdvOpt</h2>
+          <div class="section-note">ADVANCE OPTIMIZATION</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -594,10 +704,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="scic">
+    <section class="section collapsed" id="scic" data-section-id="scic">
       <div class="section-head">
-        <h2 class="section-title">SciC</h2>
-        <div class="section-note">IMPACT TRACK</div>
+        <div class="section-head-left">
+          <h2 class="section-title">SciC</h2>
+          <div class="section-note">SCIENTIFIC COMPUTING</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -671,10 +789,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="dsa">
+    <section class="section collapsed" id="dsa" data-section-id="dsa">
       <div class="section-head">
-        <h2 class="section-title">DSA</h2>
-        <div class="section-note">DATA STRUCTURES &amp; ALGORITHMS</div>
+        <div class="section-head-left">
+          <h2 class="section-title">DSA</h2>
+          <div class="section-note">DATA STRUCTURES &amp; ALGORITHMS</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -710,10 +836,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="ml">
+    <section class="section collapsed" id="ml" data-section-id="ml">
       <div class="section-head">
-        <h2 class="section-title">ML</h2>
-        <div class="section-note">MACHINE LEARNING</div>
+        <div class="section-head-left">
+          <h2 class="section-title">ML</h2>
+          <div class="section-note">MACHINE LEARNING</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -732,11 +866,22 @@
         <div class="timeline-year">
           <div class="timeline-year-head">
             <span class="timeline-year-label">2025</span>
-            <span class="timeline-year-title">Emergence</span>
+            <span class="timeline-year-title">Neural Network Architecture</span>
           </div>
           <div class="timeline-cards">
               <article class="timeline-card timeline-media">
-                <img src="ML/Screenshot From 2026-01-13 14-08-43.png" alt="Feedforward Neural Network Architecture" />
+                <img src="ML/image1.png" alt="Feedforward Neural Network Architecture" />
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">Q3 2025</span>
+            <span class="timeline-year-title">MediaVault 2</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="ML/image2.png" alt="MediaVault 2 Interface" />
               </article>
           </div>
         </div>
@@ -781,10 +926,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="sysadmin">
+    <section class="section collapsed" id="sysadmin" data-section-id="sysadmin">
       <div class="section-head">
-        <h2 class="section-title">SysAdmin</h2>
-        <div class="section-note">SYSTEM OPERATIONS</div>
+        <div class="section-head-left">
+          <h2 class="section-title">SysAdmin</h2>
+          <div class="section-note">SYSTEM ADMINISTRATION</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -836,10 +989,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="cloud">
+    <section class="section collapsed" id="cloud" data-section-id="cloud">
       <div class="section-head">
-        <h2 class="section-title">Cloud</h2>
-        <div class="section-note">CLOUD PLATFORMS</div>
+        <div class="section-head-left">
+          <h2 class="section-title">Cloud</h2>
+          <div class="section-note">CLOUD PLATFORMS</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -875,10 +1036,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="dataeng">
+    <section class="section collapsed" id="dataeng" data-section-id="dataeng">
       <div class="section-head">
-        <h2 class="section-title">DataEng</h2>
-        <div class="section-note">DATA ENGINEERING</div>
+        <div class="section-head-left">
+          <h2 class="section-title">DataEng</h2>
+          <div class="section-note">DATA ENGINEERING</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -907,10 +1076,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="security">
+    <section class="section collapsed" id="security" data-section-id="security">
       <div class="section-head">
-        <h2 class="section-title">Security</h2>
-        <div class="section-note">SECURITY OPERATIONS</div>
+        <div class="section-head-left">
+          <h2 class="section-title">Security</h2>
+          <div class="section-note">SECURITY OPERATIONS</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -946,10 +1123,18 @@
         </div>
       </div>
     </section>
-    <section class="section" id="embmicro">
+    <section class="section collapsed" id="embmicro" data-section-id="embmicro">
       <div class="section-head">
-        <h2 class="section-title">EmbMicro</h2>
-        <div class="section-note">EMBEDDED MICROCONTROLLERS</div>
+        <div class="section-head-left">
+          <h2 class="section-title">EmbMicro</h2>
+          <div class="section-note">EMBEDDED MICROCONTROLLERS</div>
+        </div>
+        <button class="section-toggle" aria-label="Toggle section" aria-expanded="false">
+          <svg class="toggle-icon" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <path class="icon-minus" d="M19 13H5v-2h14v2z" style="display: none;" />
+            <path class="icon-plus" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+          </svg>
+        </button>
       </div>
       <div class="timeline">
         <div class="timeline-year">
@@ -985,6 +1170,86 @@
         </div>
       </div>
     </section>
+    <script>
+    (function() {
+      'use strict';
+
+      var STORAGE_KEY = 'section-collapse-state';
+
+      function loadState() {
+        try {
+          var saved = localStorage.getItem(STORAGE_KEY);
+          return saved ? JSON.parse(saved) : {};
+        } catch (e) {
+          return {};
+        }
+      }
+
+      function saveState(state) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        } catch (e) {
+          // Silently fail if localStorage unavailable
+        }
+      }
+
+      function init() {
+        var sections = document.querySelectorAll('.section[data-section-id]');
+        var state = loadState();
+
+        sections.forEach(function(section) {
+          var sectionId = section.getAttribute('data-section-id');
+          var toggle = section.querySelector('.section-toggle');
+
+          if (!toggle) return;
+
+          var iconMinus = toggle.querySelector('.icon-minus');
+          var iconPlus = toggle.querySelector('.icon-plus');
+
+          // Restore saved state (default is collapsed, state stores expanded sections)
+          if (state[sectionId] === true) {
+            section.classList.remove('collapsed');
+            toggle.setAttribute('aria-expanded', 'true');
+            iconMinus.style.display = 'block';
+            iconPlus.style.display = 'none';
+          }
+
+          // Click handler
+          toggle.addEventListener('click', function() {
+            var isCollapsed = section.classList.toggle('collapsed');
+            toggle.setAttribute('aria-expanded', isCollapsed ? 'false' : 'true');
+
+            // Toggle icons
+            if (isCollapsed) {
+              iconMinus.style.display = 'none';
+              iconPlus.style.display = 'block';
+              state[sectionId] = false;  // Collapsed
+            } else {
+              iconMinus.style.display = 'block';
+              iconPlus.style.display = 'none';
+              state[sectionId] = true;   // Expanded
+            }
+
+            saveState(state);
+          });
+
+          // Keyboard support
+          toggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              toggle.click();
+            }
+          });
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+    </script>
     <!-- END:SECTIONS -->
     <!-- BEGIN:SNIPPETS -->
     <section class="section snippets" id="snippets">
@@ -993,37 +1258,6 @@
         <div class="section-note">DAILY LOG</div>
       </div>
       <div class="snippet-stack">
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">Git Delta Config</div>
-            <div class="snippet-lang">gitconfig</div>
-          </div>
-          <pre><code class="snippet-code">
-    #Add some decorations over your ugly git :)  
-    [pager]
-        diff = delta
-        log = delta
-        reflog = delta
-        show = delta
-
-    [delta]
-        features = side-by-side line-numbers decorations
-        syntax-theme = Monokai Extended
-        navigate = true
-        line-numbers = true
-
-    [delta &quot;decorations&quot;]
-        commit-decoration-style = bold yellow box
-        file-style = bold yellow ul
-        file-decoration-style = none
-
-    [interactive]
-        diffFilter = delta --color-only
-
-    [core]
-        pager = delta
-          </code></pre>
-        </article>
       </div>
       <script>
         (function () {
