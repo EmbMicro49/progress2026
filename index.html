@@ -597,9 +597,9 @@
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">☁️ <span></span></h1>
+        <h1 class="hero-title">DSA+ADVOPT <span></span></h1>
         <p class="hero-desc">
-          All I need in my life is a little bit of sunshine, desperately waiting for that day.
+          So you can reduce the simulation runtime by either using more advanced hardware or by implementing more efficient and innovative algorithms.
         </p>
       </div>
       <!-- END:HERO -->
@@ -699,6 +699,19 @@
                 <div class="timeline-tag">Journey</div>
                 <h3 class="timeline-title">From FORTRAN to GPU Computing</h3>
                 <p class="timeline-desc">I realized that the FORTRAN based simulation was performing quite slowly, which led me to research possible optimization techniques. In doing so, I discovered methods for parallelizing code on Intel processors and conducted several roofline model analyses to estimate potential performance gains. However, after careful consideration, I ultimately abandoned this approach. It was at that point that I became aware of GPU computing as an alternative. Consequently, all credit for my progress with CUDA belongs to the graphics card shown on the left.</p>
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">2021</span>
+            <span class="timeline-year-title">TILING</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag"></div>
+                <h3 class="timeline-title">SHARED MEMORY</h3>
+                <p class="timeline-desc">After some research, I found that instead of relying on global memory for every operation, the data can be loaded serially into the L2 cache, the calculations can be performed there, and the results can then be written back to global memory before loading the next data set. This approach cuts the overall simulation time by approximately half</p>
               </article>
           </div>
         </div>
@@ -803,6 +816,19 @@
         </button>
       </div>
       <div class="timeline">
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">2020</span>
+            <span class="timeline-year-title">molecular dynamics</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag"></div>
+                <h3 class="timeline-title">NEIGHBOUR LIST</h3>
+                <p class="timeline-desc">After following a professor&#39;s lecture in which he explained the neighbor list algorithm used in molecular dynamics simulations, I implemented the same approach in my own work. The results demonstrated a substantial improvement in computational performance while preserving the accuracy of the simulation</p>
+              </article>
+          </div>
+        </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
             <span class="timeline-year-label">2023</span>
@@ -1267,34 +1293,35 @@
       <div class="snippet-stack">
         <article class="snippet-card">
           <div class="snippet-head">
-            <div class="snippet-title">Ansible Playbook: Automated Ceph Deployment</div>
-            <div class="snippet-lang">yaml</div>
+            <div class="snippet-title">HNSW (Hierarchical Navigable Small World) implementation</div>
+            <div class="snippet-lang">python</div>
           </div>
           <pre><code class="snippet-code">
-    ---
-    # Ansible Playbook: Automated Ceph Deployment for OpenStack
-    # This playbook automates the entire Ceph cluster deployment process
-    # including Docker installation, cluster bootstrap, OSD deployment,
-    # pool creation, and Kolla-Ansible integration
-    - name: Install Docker on all nodes
-      hosts: all
-      become: true
-      vars:
-        docker_version: &quot;latest&quot;
-      tasks:
-        - name: Check if Docker is already installed
-          command: docker --version
-          register: docker_check
-          ignore_errors: true
-          changed_when: false
-        - name: Install Docker
-          when: docker_check.rc != 0
-          block:
-            - name: Download Docker installation script
-              get_url:
-                url: https://get.docker.com
-                dest: /tmp/get-docker.sh
-                mode: &#39;0755&#39;
+    HNSW (Hierarchical Navigable Small World) implementation.
+
+    Time Complexity: O(log n) average search, O(n log n) construction
+    Space Complexity: O(n × M × log n)
+
+    Author: MyCodeVault DSA 
+
+    import numpy as np
+    import heapq
+    from typing import List, Tuple, Set, Dict
+    from dataclasses import dataclass, field
+
+
+    @dataclass
+    class HNSWNode:
+        &quot;&quot;&quot;Node in HNSW graph.&quot;&quot;&quot;
+        id: int
+        vector: np.ndarray
+        layer: int
+        connections: Dict[int, List[int]] = field(default_factory=dict)
+
+        def __post_init__(self):
+            # Initialize connections for each layer
+            for l in range(self.layer + 1):
+                self.connections[l] = []
           </code></pre>
         </article>
       </div>
