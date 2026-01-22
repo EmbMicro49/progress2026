@@ -411,6 +411,19 @@
       display: block;
     }
 
+    .snippet-media {
+      padding: 20px;
+    }
+
+    .snippet-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      border: 1px solid var(--grid);
+      box-shadow: 0 16px 32px rgba(10, 10, 10, 0.12);
+    }
+
     .snippet-list {
       margin: 0;
       padding-left: 18px;
@@ -597,9 +610,9 @@
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
         <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">DSA+ADVOPT <span></span></h1>
+        <h1 class="hero-title">Advanced RISC Machine <span></span></h1>
         <p class="hero-desc">
-          So you can reduce the simulation runtime by either using more advanced hardware or by implementing more efficient and innovative algorithms.
+          From microcontrollers to supercomputers...
         </p>
       </div>
       <!-- END:HERO -->
@@ -712,6 +725,19 @@
                 <div class="timeline-tag"></div>
                 <h3 class="timeline-title">SHARED MEMORY</h3>
                 <p class="timeline-desc">After some research, I found that instead of relying on global memory for every operation, the data can be loaded serially into the L2 cache, the calculations can be performed there, and the results can then be written back to global memory before loading the next data set. This approach cuts the overall simulation time by approximately half</p>
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
+            <span class="timeline-year-label">2026</span>
+            <span class="timeline-year-title">ARM Architecture</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card">
+                <div class="timeline-tag"></div>
+                <h3 class="timeline-title">ARM Optimization Stack</h3>
+                <p class="timeline-desc">• ARM CPU vectorization (Neon, SVE/SVE2)<br>• Cloud-optimized ARM processors (Graviton, Ampere, Grace)<br>• ARM HPC toolchain (compilers, performance libraries, debuggers)<br>• ARM GPU compute (Mali, OpenCL, Vulkan)<br>• Memory architecture and concurrency on ARM<br>• Performance analysis and profiling tools</p>
               </article>
           </div>
         </div>
@@ -1291,38 +1317,11 @@
         <div class="section-note">DAILY LOG</div>
       </div>
       <div class="snippet-stack">
-        <article class="snippet-card">
+        <article class="snippet-card snippet-media">
           <div class="snippet-head">
-            <div class="snippet-title">HNSW (Hierarchical Navigable Small World) implementation</div>
-            <div class="snippet-lang">python</div>
+            <div class="snippet-title">17 agents are reaching the upper limits of all the memory, so the next ...</div>
           </div>
-          <pre><code class="snippet-code">
-    HNSW (Hierarchical Navigable Small World) implementation.
-
-    Time Complexity: O(log n) average search, O(n log n) construction
-    Space Complexity: O(n × M × log n)
-
-    Author: MyCodeVault DSA 
-
-    import numpy as np
-    import heapq
-    from typing import List, Tuple, Set, Dict
-    from dataclasses import dataclass, field
-
-
-    @dataclass
-    class HNSWNode:
-        &quot;&quot;&quot;Node in HNSW graph.&quot;&quot;&quot;
-        id: int
-        vector: np.ndarray
-        layer: int
-        connections: Dict[int, List[int]] = field(default_factory=dict)
-
-        def __post_init__(self):
-            # Initialize connections for each layer
-            for l in range(self.layer + 1):
-                self.connections[l] = []
-          </code></pre>
+          <img src="Snippets/image1.png" alt="Snippet Image 1" class="snippet-image" />
         </article>
       </div>
       <script>
@@ -1341,7 +1340,7 @@
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-title">Not every branch bears fruit, and not every flower survives the storm, yet the tree continues to grow.</div>
+          <div class="footer-title">Also, I have too many lyrics in my head, so I need to go back and reclaim my old website to express them.</div>
           <p class="footer-desc"></p>
         </div>
         <div class="footer-links">
