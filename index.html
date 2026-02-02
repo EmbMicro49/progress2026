@@ -18,6 +18,9 @@
       --sand: #f5e8c3;
       --coral: #ff8a5b;
       --slate: #1d1d1d;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 16px 32px rgba(10, 10, 10, 0.1);
     }
 
     * {
@@ -41,11 +44,12 @@
       align-items: center;
       padding: 20px 40px;
       border-bottom: 1px solid var(--grid);
-      background: rgba(165, 231, 255, 0.3);
+      background: linear-gradient(180deg, rgba(165, 231, 255, 0.36), rgba(165, 231, 255, 0.2));
       backdrop-filter: blur(6px);
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 10px 30px rgba(10, 10, 10, 0.08);
     }
 
     .mark {
@@ -86,7 +90,8 @@
       transition: transform 200ms ease;
     }
 
-    nav a:hover::after {
+    nav a:hover::after,
+    nav a.is-active::after {
       transform: scaleX(1);
     }
 
@@ -105,6 +110,7 @@
       border-bottom: 1px solid var(--grid);
       position: relative;
       overflow: hidden;
+      animation: rise-in 700ms ease both;
     }
 
     .hero::before {
@@ -158,6 +164,11 @@
       padding: 56px 40px;
       border-bottom: 1px solid var(--grid);
       scroll-margin-top: 96px;
+      position: relative;
+      background-image: linear-gradient(0deg, rgba(10, 10, 10, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(10, 10, 10, 0.02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      animation: rise-in 700ms ease both;
     }
 
     .section-head {
@@ -302,12 +313,12 @@
 
     .timeline-card {
       padding: 18px;
-      border-radius: 16px;
+      border-radius: var(--radius-lg);
       border: 1px solid var(--grid);
       background: rgba(255, 255, 255, 0.88);
       display: grid;
       gap: 10px;
-      box-shadow: 0 12px 24px rgba(10, 10, 10, 0.08);
+      box-shadow: var(--shadow-soft);
     }
 
     .timeline-card.highlight {
@@ -324,10 +335,10 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--grid);
       background: #fff;
-      box-shadow: 0 16px 32px rgba(10, 10, 10, 0.12);
+      box-shadow: var(--shadow-soft);
     }
 
     .timeline-tag {
@@ -363,12 +374,12 @@
 
     .snippet-card {
       padding: 20px;
-      border-radius: 18px;
+      border-radius: var(--radius-lg);
       border: 1px solid var(--grid);
       background: rgba(255, 255, 255, 0.92);
       display: grid;
       gap: 12px;
-      box-shadow: 0 16px 32px rgba(10, 10, 10, 0.08);
+      box-shadow: var(--shadow-soft);
     }
 
     .snippet-head {
@@ -404,7 +415,7 @@
       overflow-y: auto;
       background: rgba(11, 11, 11, 0.08);
       padding: 14px;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
     }
 
     .snippet-code {
@@ -419,9 +430,9 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 12px;
+      border-radius: var(--radius-md);
       border: 1px solid var(--grid);
-      box-shadow: 0 16px 32px rgba(10, 10, 10, 0.12);
+      box-shadow: var(--shadow-soft);
     }
 
     .snippet-list {
@@ -433,9 +444,9 @@
     }
 
     .footer {
-      padding: 48px 40px 32px;
+      padding: 18px 40px 12px;
       border-top: 1px solid var(--grid);
-      background: linear-gradient(120deg, rgba(165, 231, 255, 0.18), rgba(245, 232, 195, 0.22));
+      background: linear-gradient(120deg, rgba(165, 231, 255, 0.16), rgba(245, 232, 195, 0.12));
     }
 
     .footer-grid {
@@ -504,6 +515,17 @@
       letter-spacing: 0.14em;
       text-transform: uppercase;
       opacity: 0.6;
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(14px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 980px) {
@@ -583,7 +605,7 @@
   <div class="page">
     <header class="topbar">
       <div class="mark">
-        <span>008</span>
+        <span>009</span>
       </div>
       <nav>
         <!-- BEGIN:NAV -->
@@ -605,10 +627,10 @@
     <section class="hero">
       <!-- BEGIN:HERO -->
       <div class="hero-copy">
-        <div class="hero-meta">Current update | Jan 2026 | Global</div>
-        <h1 class="hero-title">CLOUDY COMPUTING <span></span></h1>
+        <div class="hero-meta">Current update | FEB 2026 | Global</div>
+        <h1 class="hero-title">AWS <span></span></h1>
         <p class="hero-desc">
-          I have feelings for my crush
+          Amazon Web Services remains the undisputed leader in cloud computing, setting the standard for scale, reliability, and innovation.
         </p>
       </div>
       <!-- END:HERO -->
@@ -1094,6 +1116,20 @@
         </div>
         <div class="timeline-year">
           <div class="timeline-year-head">
+            <span class="timeline-year-label">2024</span>
+            <span class="timeline-year-title">AWS Infrastructure</span>
+          </div>
+          <div class="timeline-cards">
+              <article class="timeline-card timeline-media">
+                <img src="Cloud/image5.png" alt="AWS Logo" />
+              </article>
+              <article class="timeline-card timeline-media">
+                <img src="Cloud/image6.png" alt="CloudTrail Terraform Configuration" />
+              </article>
+          </div>
+        </div>
+        <div class="timeline-year">
+          <div class="timeline-year-head">
             <span class="timeline-year-label">Q4 2025</span>
             <span class="timeline-year-title">hybrid cloud version 1</span>
           </div>
@@ -1311,39 +1347,6 @@
         <div class="section-note">DAILY LOG</div>
       </div>
       <div class="snippet-stack">
-        <article class="snippet-card">
-          <div class="snippet-head">
-            <div class="snippet-title">bugfix/ingredient-fix</div>
-            <div class="snippet-lang">recipe</div>
-          </div>
-          <pre><code class="snippet-code">
-    Version 1.1.0
-
-        [1] Fresh curd or plain yogurt, preferably thick, diluted to a 70% yogurt and 30% water consistency
-
-        [2] 1/2 medium onion, finely chopped
-
-        [3] 5-6 cherry tomatoes, optional
-
-        [4] Cabbage or lettuce, chopped (approximately 1 to 1 1/2 cups, as preferred)
-
-        [5] 2 tablespoons garlic oil or finely minced fresh garlic
-
-        [6] 3 tablespoons mayonnaise
-
-        [7] 1/2 tablespoon Dijon mustard
-
-        [8] 1/3 cup Funghi Prataioli Piccoli e Interi
-
-        [9] Olive oil, for drizzling on top
-
-        [10] Freshly ground black pepper, to taste.
-
-        [11] 1/2 tablespoon Spicy Chili Pepper Cream Olive
-
-        Also use an airtight glass bowl and store it in the refrigerator.After 24 hours, the flavors will mature
-          </code></pre>
-        </article>
       </div>
       <script>
         (function () {
@@ -1361,7 +1364,7 @@
     <footer class="footer">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="footer-title">CRUSH (Controlled Replication Under Scalable Hashing) is a deterministic algorithm that calculates where data should be stored without requiring a central directory or metadata server.</div>
+          <div class="footer-title"></div>
           <p class="footer-desc"></p>
         </div>
         <div class="footer-links">
